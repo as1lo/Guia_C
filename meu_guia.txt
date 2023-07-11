@@ -1,0 +1,380 @@
+
+Cabeçalho --------------------------------------------------------------------------------------------
+    ' # ': pré-processador.
+    
+    #include: diretiva de pré-processamento, usada para incluir arquivos no programa.
+        <>: para bibliotecas.
+        "": para seus próprios.
+
+    #define: diretiva para criar constantes.
+        EX.:
+            #define IDADE 30
+    
+    MACROS: 
+        EX.:
+            #define POTENCIA(x) ((x) * (x))
+
+    Bibliotecas: funções importantes.
+        <stdlib.h>: biblioteca padrão.
+
+        <stdio.h>: entrada e saída padrão.
+
+        <string.h>: funções.
+
+            String Copy: alterar o conteúdo da string.
+                strcpy(<destino>, <origem>);
+            
+            String  Concatenation: juntar strings.
+                strcat(<destino>, <origem>);
+
+            String Lenght: mostra o comprimento da string.
+                strlen(<string>);
+
+            String Comparation: compara conteúdo de strings.
+                strcmp(<string1>, <string2>);
+        
+        <locale.h>: funções.
+            Permite acentos.
+                setlocal(LC_ALL, "Portuguese")
+
+SEQUÊNCIAS DE ESCAPE: --------------------------------------------------------------------------------
+        \a: toca um bipe sonoro.
+        \b: backspace.
+        \n: quebra/pula de linha.
+        \t: tabulação horizontal (TAB).
+        \r: retorna ao início da linha.
+        \0: caractere nulo.
+        \v: tabulação vertical.
+        \\: caractere: '\'
+        \' : caractere: '
+        \" : caractere: "
+        \? : caractere: ?
+        \123: caractere relacionado a 123 em octal (ASCII).
+        \x12: caractere relacionado a 12 em hexadecimal (ASCII).
+        %%: caractere: %
+
+ESPECIFICADORES DE FORMATO: (placeholder) ------------------------------------------------------------
+        (COLOCANDO UM NÚMERO ANTES DA LETRA, SERÁ DEFINIDA A COLUNA DO VALOR NA STRING)
+        %u: especificador de formato para valor decimal sem sinal ('unsigned' precisa ser declarado na variável).
+        %d ou %i: números inteiros com base decimal.
+        %x: números inteiros com base hexadecimal.
+        %f: números em ponto flutuante (com casa decimal).
+        %e: números em notação científica (com casa decimal).
+        %c: caracter alfanumérico.
+        %s: sequência de caracter alfanumérico.
+        %p: para ponteiro
+        .(num. digitado): especifica quantos digitos serão impressos após a vírgula.
+
+TIPOS DE DADOS INTEGRADOS: variáveis e constantes. ---------------------------------------------------
+        int (inteiro) 
+        char (character)(8 bits): armazena um caracter único da tabela ASCII e numeros entre -128 e 127
+        short (inteiro)(16 bits):
+        long (inteiro)(32 bits):
+    
+        NÚMEROS DE PONTO FLUTUANTE: representados também como decimais na potência de 10.
+        float (real)(32 bits): até 6 casas decimais entre  10^-37 e 10^+37
+        double (real)(64 bits): até 15 casas decimais
+        long double (real)(80 bits)
+        
+        Sintaxe:
+            - Proibido números no primeiro char; proibido special char; proibido espaços;
+            
+            Variáveis: o dado inserido é mutável.
+                <tipo> <nome_var> (se precisar atribuir dados: '= <dado>') 
+                EX.:
+                    int idade = 18
+
+            Constantes: dado inseirido é imutável.
+                const <tipo> <nome_var> = <dado>
+                    ou
+                #define <nome_var> <dado>
+                EX.:
+                    const int idade = 10; / const char nome = "peter"
+                        ou
+                    #define idade 5 / #define nome "Peter"
+
+OPERADORES ARITMÉTICOS: ------------------------------------------------------------------------------
+        = : atribuição
+        + : soma
+        - : subtração
+        * : multiplicação
+        / : divisão
+        %: módulo (resto de divisão inteira)
+
+        UNÁRIOS:
+        + : unário de soma. EX.: +a
+        - : unário de subtração. EX.: -a
+        ++: incremento em 1 unidade.
+        --: decremento em 1 unidade.
+   
+PRECEDÊNCIA DE OPERAÇÃO: -----------------------------------------------------------------------------
+        maior -> menor.
+        esquerda -> direira (exceto unários e atribuição)
+        1- Uso de parênteses '()'
+        2- Unários: '+' e '-'
+        3- '*' e '/'
+        4- Binários: '+' e '-'
+        5- Atribuição: '='
+
+Operadores de Comparação -----------------------------------------------------------------------------
+        == : igualdade
+        != : diferença
+        (>),(>=),(<=),(<) : maior/igual que e menor/igual que 
+    
+Operadores Lógicos: ----------------------------------------------------------------------------------
+        '!' : NOT. (ex.: !a)
+        '&&' : AND. (ex.: a && b)
+        '||' : OR. (ex.: a || b) 
+
+OPERADORES DE ATRIBUIÇÃO COMPOSTA: -------------------------------------------------------------------
+        '+=': Atribuição e Adição.
+        '-=': Atribuição e Subtração.
+        '*=': Atribuição e Multiplicação.
+        '/=': Atribuição e Divisão.
+        '%=': Atribuição e Módulo.
+    
+OPERADOR TERNÁRIO: -----------------------------------------------------------------------------------
+        funciona com 3 operandos, sendo um o modo abreviado de expressar condicionais.
+        É equivalente a if/else
+        <condição> ? <expressão> : <expressão>
+        EX.: Se 'a' for verdadeiro, a instrução 'b' será executada. Se não, é executada a instrução 'c'.
+            a ? b : c
+    
+SIZEOF -----------------------------------------------------------------------------------------------
+        Retorna o tamanho do operando que você passar. 
+        É possível passar uma variável ou um tipo.
+    
+OPERADORES CONDICIONAIS ------------------------------------------------------------------------------
+        if: (se)
+        else: (senão)
+        else if: (senão se)
+        switch: (escolha)
+            case: (caso)
+                break: encerra condição por completo.
+                continue: ignora as linhas seguintes e continua o bloco de repetição.
+            default: referente a 'outrocaso'
+    
+LAÇOS DE REPETIÇÃO -----------------------------------------------------------------------------------
+        for: referente a 'para___de___ate___(passo)faca'.
+
+            for(valor_inicial; condição_final; valor_incremento)
+            {
+                instruções;
+            }
+            
+            EX.:
+                for (int i = 0; i <= 10; i++) {
+                
+                }
+
+                ou com passo:
+
+                for (int i = 0; i < 1000; i = i + 30) {
+                
+                }
+
+                for (int i = 0; i <= 10; i++) {
+                    if (i == 4 && someVariable == 10) {
+                        break;
+                    }
+                }
+
+        while: referente a 'enquanto____faca'.
+            EX.:
+                while (i < 10) {
+
+                i++ (contador)
+                }
+            
+            while (1) {
+                *realizar uma ação 
+
+                i++;
+                if (i == 10) break;
+            }
+            
+        do while: referente a 'repita até'
+            EX.:
+                do {
+                    *realiza a ação*
+                    i++ (contador)
+                } while (i < 10);
+
+ARRAYS: vetores e matrizes. --------------------------------------------------------------------------
+
+        (array sempre tem inicio no número 0)
+
+        Array Unidimensional:
+            <tipo> <nome_array> [tamanho_array]
+            EX.:
+                int num [5];
+            Formas de definir o tamanho de uma array unidimensional:
+                - Usando uma constante:
+                    EX.:
+                        const int SIZE = 35;
+                        int vet [SIZE];
+
+            Atribuição de valores:
+                - No momento da definição:
+                    EX.: 
+                        int xer [5] = {1, 2, 3, 4, 5};
+                
+                - Após a definição:
+                    EX.:
+                        int trex [3] ;
+
+                        trex[0] = 1;
+                        trex[1] = 3;
+                        trex[2] = 9;
+                
+                - Usando laço de repetição 'for'
+                    EX.: 
+                        int car[5]
+
+                        for (int i = 0; i < 5; i++) {
+                            car[i] = i + 1;
+                        }
+        Array Bidimensiomal:
+            <tipo> <nome_array> [num_linhas][num_colunas]....[N_dimensões]
+            EX.:
+                int notas [5][4];
+
+        String:
+            Uma 'string' é uma array do tipo char.
+            
+            Funções: 
+                ENTRADA: sintaxe.
+                    gets(<string>); //(ocorre estouro no limite)
+                
+                    fgets(<string>, <tam>, stdin); //o melhor pra ser usado
+
+                    getline(<pont. de um pont. de char>, <pont. de var do tipo size_t>, stdin); 
+                    //alocação de memória dinâmica
+
+                    Scanf Convencional:
+                        EX.: (convencional: pode explodir o limite definido causando problemas na máquina e não dá para usar espaço.)
+                            char nome[7];
+                            scanf("%s", nome);
+                
+                    Scanf Aprimorado:
+                        EX.: (aprimorado: só até o limite definido é possível usar espaço.)
+
+                            scanf("%<tam.-1>[^\n]s", <string>)
+
+                            char nome[7];
+                            scanf("%6[^\n]s", nome)
+
+                EX.: 
+                    char name[7] = { "F", "l", "a", "v", "i", "o" };
+            
+                EX.: string constante/literal:
+                    char name[7] = "Flávio"
+                
+                    OBS: O último caractere de uma String deve ser \0, por isso o tamanho dela precisa ser 1 número maior.
+
+            SAÍDA: sintaxe.
+                - Imprime diretamente na tela:
+                    puts(<string>);
+
+                fflush(stdin): evitar lixo de memória no buffer e evitar comportamentos inesperados (bug). 
+
+FORMATAÇÃO DE ENTRADA E SAÍDA DE DADOS:---------------------------------------------------------------
+            printf(): escreve dados na tela.
+            scanf(): recebe dados do usuário.
+                scanf("<placeholder>", <endereço_da_variável>);
+                EX.: int nome
+                     scanf("%s", &nome);
+   
+PONTEIROS --------------------------------------------------------------------------------------------
+        Ponteiros armazenam endereços de memória.
+        - Variável que aponta para outra variável.
+        
+        - Variável que armazena um endereço de memória onde se encontra outras variáveis comuns.
+            '&': Operador de Endereço - operador unário que permite retornar o endereço na memória
+            '*': Operador de Indireção - operador de ponteiro para obter o valor da variável para a qual um endereço está apontando:
+                EX.:
+                    int age = 37;
+                    int *address = &age;
+                    printf("%u", *address); /* 37 */
+    
+FUNÇÔES ----------------------------------------------------------------------------------------------
+       As funções são blocos de código que podem ser reutilizados em um programa. Elas permitem que o código seja dividido em partes menores e mais fáceis de entender e manter.
+
+        Sintaxe: Comum.
+
+            <tipo> <nome_da_função> (<parâmetros>){
+                
+                <bloco_de_funções>
+
+                return: <*informação retornada>;
+            }
+
+        Sintaxe: Struct como parâmetro.
+
+            <tipo> <nome_da_função> (<tipo_struct> <parâmetro>){
+                <bloco_de_funções>
+
+                return: <*informação retornada>
+            }
+        
+        Sintaxe: Vetor/Matriz como parâmetro.
+
+             <tipo> <nome_da_função> (<tipo> <vetor>[<tam>]){
+                <bloco_de_funções>
+
+                return: <*informação retornada>
+            }
+
+        DICAS:
+            static: Uma variável estática mantém seu valor entre chamadas sucessivas à função em que está declarada. 
+            
+            Sintaxe:
+                static <tipo> <nome> = <valor>;
+                    ou
+                static <tipo> <nome>; (static atribui automaticamente 0)
+   
+STRUCTS ----------------------------------------------------------------------------------------------
+        As “structs” (estruturas) são uma forma de agrupar diferentes tipos de dados em um único bloco de memória.
+        
+        Sintaxe:
+            struct < nome_struct (novo tipo)>{
+                **área de declaração dos membros**
+                <tipo_1> <campo_1>;
+                ....
+                <tipo_N> <campo_N> ;
+            } <declaração de variáveis>(optional o uso e pode declarar vetores);
+        
+        Acessar membros de uma struct:
+            Sintaxe:
+                <variável>.<campo_membro>
+    
+DEFINIÇÃO DE TIPO ------------------------------------------------------------------------------------
+
+        typedef : dá um apelido.
+
+        TIPOS ENUMERADOS: ' enum ' é uma lista de constantes nomeadas onde cada constante é associada a um valor inteiro.
+            Sintaxe:
+                enum <nome_enum> {
+                    <constantes>
+                };
+            EX. USANDO 'typedef':
+
+                typedef enum {
+                segunda,  
+                terca,
+                quarta,
+                quinta,
+                sexta,
+                sabado,
+                domingo
+                } DIA_DA_SEMANA;
+
+                int main(void) {
+                    DIA_DA_SEMANA dia = segunda;
+                     if (dia == segunda) {
+                        printf("Hoje é segunda!"); 
+                    } else {
+                        printf("Hoje não é segunda"); 
+                    }
+                }
+
