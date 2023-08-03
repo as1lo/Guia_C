@@ -24,7 +24,7 @@ Cabeçalho ---------------------------------------------------------------------
             String Copy: alterar o conteúdo da string.
                 strcpy(<destino>, <origem>);
             
-            String  Concatenation: juntar strings.
+            String Concatenation: juntar strings.
                 strcat(<destino>, <origem>);
 
             String Lenght: mostra o comprimento da string.
@@ -140,10 +140,35 @@ OPERADOR TERNÁRIO: ------------------------------------------------------------
         EX.: Se 'a' for verdadeiro, a instrução 'b' será executada. Se não, é executada a instrução 'c'.
             a ? b : c
     
-SIZEOF -----------------------------------------------------------------------------------------------
-        Retorna o tamanho do operando que você passar. 
-        É possível passar uma variável ou um tipo.
-    
+ALOCAÇÃO DINÂMICA DE MEMÓRIA -------------------------------------------------------------------------
+        Permite que um programa reserve espaço de memória durante a execução, em vez de reservar essa memória estática e fixamente durante a compilação. Isso é muito útil quando você precisa armazenar dados cujo tamanho é desconhecido antecipadamente ou quando o tamanho pode variar durante a execução do programa.
+
+        SIZEOF
+            -Retorna o tamanho do operando que você passar. 
+            -É possível passar uma variável ou um tipo.
+        
+        MALLOC: memory allocation 
+            -Para quando não souber a quantidade de memória que será usada em tempo de compilação.
+            -Para alocar um bloco de memória específico em bytes.
+            -A memória alocada pelo malloc não é inicializada, ou seja, ela pode conter lixo, e você deve atribuir valores antes de usá-la.
+            -Retorna um ponteiro do tipo 'void'.
+            
+            Ex.:
+                int *p = (int *) malloc(sizeof(int));
+                    
+                1 - Ponteiro 'p' aponta para um endereço de memória de tipo 'int'.
+                2 - malloc(sizeof(int)): reserva um bloco de memória do tamanho de um 'int'.
+                3 - (int *): realizando a converção de tipo ("casting").
+
+        REALLOC: 
+
+        CALLOC:
+
+        FREE:
+            -É usada para liberar a memória previamente alocada dinamicamente pelo malloc.
+            -Você informa ao sistema operacional que não precisa mais daquele bloco de memória, tornando-o disponível  para outras alocações futuras.
+            -Evita vazamentos de memória e impede o consumo gradual de memória disponível e evita erros e comportamentos inesperados(memory leaks).
+
 OPERADORES CONDICIONAIS ------------------------------------------------------------------------------
         if: (se)
         else: (senão)
@@ -296,6 +321,16 @@ PONTEIROS ----------------------------------------------------------------------
                     int age = 37;
                     int *address = &age;
                     printf("%u", *address); /* 37 */
+        
+        - Usando o ponteiro sem o operador de Indireção: se fala sobre endereço.
+        - Usando o ponteiro com o operador de Indireção: se fala sobre o valor apontado.
+
+        Usa-se ponteiro como passagem de parâmetro por refêrencia em funções. 
+        
+        Quando usado na hora de declarar a função, você mostra com o operador de Indireção: 
+            void testePonteiro(int *pX). 
+        Quando usado na hora de usar a função, você mostra sem o operador de Indireação: 
+            testePonteiro(pTeste).
     
 FUNÇÔES ----------------------------------------------------------------------------------------------
        As funções são blocos de código que podem ser reutilizados em um programa. Elas permitem que o código seja dividido em partes menores e mais fáceis de entender e manter.
