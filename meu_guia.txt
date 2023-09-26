@@ -1,12 +1,12 @@
 
 Cabeçalho --------------------------------------------------------------------------------------------
-    ' # ': pré-processador.
+    ' # ': pré-processador: responsável por fazer uma série de modificações no programa antes dele ser analisado pelo compilador, essas, que são especificadas por meio de diretivas de pré-processamento que são embutidas no código fonte do programa.
     
     #include: diretiva de pré-processamento, usada para incluir arquivos no programa.
         <>: para bibliotecas.
         "": para seus próprios.
 
-    #define: diretiva para criar constantes.
+    #define: diretiva para criar constantes (pode ser até palavras reservadas).
         EX.:
             #define IDADE 30
     
@@ -51,6 +51,7 @@ SEQUÊNCIAS DE ESCAPE: ---------------------------------------------------------
         \? : caractere: ?
         \123: caractere relacionado a 123 em octal (ASCII).
         \x12: caractere relacionado a 12 em hexadecimal (ASCII).
+        \e: escape.
         %%: caractere: %
 
 ESPECIFICADORES DE FORMATO: (placeholder) ------------------------------------------------------------
@@ -173,12 +174,28 @@ OPERADORES CONDICIONAIS --------------------------------------------------------
         if: (se)
         else: (senão)
         else if: (senão se)
+            if(){
+
+            }else if(){
+
+            }else{
+
+            }
         switch: (escolha)
             case: (caso)
                 break: encerra condição por completo.
                 continue: ignora as linhas seguintes e continua o bloco de repetição.
             default: referente a 'outrocaso'
-    
+            EX.:
+                switch(){
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        
+                }
+
 LAÇOS DE REPETIÇÃO -----------------------------------------------------------------------------------
         for: referente a 'para___de___ate___(passo)faca'.
 
@@ -413,3 +430,32 @@ DEFINIÇÃO DE TIPO ------------------------------------------------------------
                     }
                 }
 
+MÉTODOS DE BUSCA ------------------------------------------------------------------------------------
+    Busca Linear: 
+        Quando não se sabe a ordem da lista.
+        Partir do seu início, ir examinando cada um de seus itens até que o item desejado seja encontrado ou então que seu final seja atingido.
+
+    Busca Binária: 
+        Quando se sabe a ordem da lista.
+        A cada comparação realizada o espaço de busca reduz-se aproximadamente à metade.
+        Semelhante a buscar uma palavra no dicionário: 
+            > Abrir a página mais ou menos no meio onde queremos achar a palavra;
+            > Verificamos se a palavra está na página. Se sim, ótimo;
+            > Se não: verificamos se a palavra ocorre antes ou depois de onde abrimos o dicionário;
+            > Continuamos a busca ou pela primeira parte do dicionário ou pela segunda;
+            > Método se repete.
+
+        • x = am: nesse caso, o problema está resolvido; 
+        • x < am: então x deverá ser procurado na primeira metade; 
+        • x > am: então x deverá ser procurado na segunda metade.
+
+MÉTODOS DE ORDENAÇÃO ------------------------------------------------------------------------------------
+    Insertion Sort: (ordenação por inserção).
+        Divide o vetor em duas partes, a parte ordenada (inicialmente menor) e desordenada.
+        A subseqüência desordenada vai diminuindo, enquanto a ordenada vai aumentando.
+       
+    Bubble Sort: (ordenação por troca).
+        Comparar pares de itens consecutivos e permutá-los, caso estejam fora de ordem. Um item máximo será deslocado para a última posição da lista e não precisará ser verificado.
+
+    Selection Sort: (ordenação por seleção).
+        Em cada fase, selecionar um menor item ainda não ordenado e permutá-lo com aquele que ocupa a sua posição na seqüência ordenada.
