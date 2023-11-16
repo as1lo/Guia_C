@@ -386,25 +386,96 @@ FUNÇÔES ----------------------------------------------------------------------
                 static <tipo> <nome>; (static atribui automaticamente 0)
    
 STRUCTS ----------------------------------------------------------------------------------------------
-        As “structs” (estruturas) são uma forma de agrupar diferentes tipos de dados em um único bloco de memória.
-        
+        As “structs” (estruturas) são uma forma de agrupar diferentes tipos de dados, chamados por um único nome e ocupando posições consecutivas de memória.
+
         Sintaxe:
-            struct < nome_struct (novo tipo)>{
+            struct <nome_struct (novo tipo)>{
                 **área de declaração dos membros**
                 <tipo_1> <campo_1>;
                 ....
                 <tipo_N> <campo_N> ;
-            } <declaração de variáveis>(optional o uso e pode declarar vetores);
+            } <declaração de variáveis> (optional o uso e pode declarar vetores);
         
-        Acessar membros de uma struct:
+        Ex.:
+            FORMA NÃO ACONSELHÁVEL (nomeada): pois não é possível criar outras variáveis do mesmo tipo da variável 'hoje'.
+                struct {
+                    int dia; 
+                    int mes; 
+                    int ano; 
+                } hoje; //declarando a variavel hoje como uma struct.
+
+            FORMA DESCONFORTÁVEL: pois a forma de declarar outras variáveis do mesmo tipo se torna longa.
+                
+                (typedef: usado para rotular; definir a estrutura como um tipo de dado)
+                
+                typedef struct data { 
+                    int dia; 
+                    int mes; 
+                    int ano; 
+                };
+
+                DECLARAÇÃO: 
+                    struct data hoje;
+                
+            FORMA ACONSELHÁVEL: 
+                (typedef: usado para rotular; definir a estrutura como um tipo de dado)
+
+                typedef struct data { 
+                    int dia; 
+                    int mes; 
+                    int ano; 
+                } DATA;
+
+                Agora o tipo de estrutura, cujo rótulo é data, recebe o nome DATA e não precisamos mais usar a palavra struct.
+
+                DECLARAÇÃO:
+                    DATA hoje;
+                
+        FORMAS DE INICIALIZAÇÃO: com estrutura aninhada.
+            PESSOA amigo = { "Itivaldo Buzo", "850-9973", {27, 7, 1970} };
+
+        ACESSAR MEMBROS DE UMA STRUCT:
+            Usando o operador de seleção de membro: '.'
             Sintaxe:
                 <variável>.<campo_membro>
-    
-DEFINIÇÃO DE TIPO ------------------------------------------------------------------------------------
 
-        typedef : dá um apelido.
+            Ex.:
+                hoje.dia = 19; 
+                hoje.mes = 7; 
+                hoje.ano = 2000;
+        
+        VETORES: ELEMENTOS COMO ESTRUTURAS (TABELA):
+            PESSOA agenda[5];
 
-        TIPOS ENUMERADOS: ' enum ' é uma lista de constantes nomeadas onde cada constante é associada a um valor inteiro.
+            PESSOA agenda[] = { 
+                { "Itivaldo Buzo", "850-9973", {27, 7, 1970} }, 
+                { "Roberto Soares", "266-0879", {15, 11, 1971} },
+            };
+        
+        PONTEIRO QUE APONTA PARA UM MEBRO DE UMA ESTRUTURA:
+
+            Se 'p' é um ponteiro que aponta para um membro 'm' então a forma de acesso é:
+                p->m; ou (*p).m;
+
+                ' -> ': operador para acessar membros por meio de ponteiros.
+
+        ESTRUTURAS QUE CONTÉM PONTEIROS:
+
+            Fazer um ponteiro da estrutura apontar para uma variável:
+                struct horario{
+                    int *pHora;
+                };
+
+                struct horario hoje;
+
+                int hora = 200;
+
+                hoje.pHora = &hora;
+
+                printf("Hora: %d\n", *hoje.pHora);
+
+
+        TIPOS ENUMERADOS: ' enum ' é uma struct onde armazena um único membro por vez (um único endereço de memória).
             Sintaxe:
                 enum <nome_enum> {
                     <constantes>
@@ -429,6 +500,10 @@ DEFINIÇÃO DE TIPO ------------------------------------------------------------
                         printf("Hoje não é segunda"); 
                     }
                 }
+
+DEFINIÇÃO DE TIPO ------------------------------------------------------------------------------------
+
+        typedef : dá um apelido.
 
 MÉTODOS DE BUSCA ------------------------------------------------------------------------------------
     Busca Linear: 
