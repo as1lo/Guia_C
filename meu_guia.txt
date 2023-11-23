@@ -534,3 +534,35 @@ MÉTODOS DE ORDENAÇÃO --------------------------------------------------------
 
     Selection Sort: (ordenação por seleção).
         Em cada fase, selecionar um menor item ainda não ordenado e permutá-lo com aquele que ocupa a sua posição na seqüência ordenada.
+
+ESTRUTURAS DE DADOS--------------------------------------------------------------------
+
+    Maneiras de organizar dados: depende do requisito de processamento.
+    
+    -Lista Encadeadas: 
+    	-Simplesmente Encadeada: cada célula conhece apenas a próxima a ela.
+    
+    	-Duplamente Encadeada: cada célula conhece a próxima e anterior.
+    
+    	-Circular: última célula conhece a primeira e/ou a primeira conhece a última.
+    		Simples: apenas o último conhece o primeiro.
+    		Dupla: ambos, último e primeiro, se conhecem.
+    
+    -Filas:	primeiro a entrar é o primeiro a sair.
+    
+    -Pilhas: o último a entrar, é o primeiro a sair.
+    	-Pode ser implementada através de vetores e listas encadeadas.
+    	
+    -Árvores: organização de elementos de forma hierárquica.
+    	Folhas: itens mais externos;
+    
+    		Binária: Utilizando busca binária.
+    			 Cada item conhece 2 itens;
+    
+    		AVL: tenta se balancear;
+    
+    		Rubro-Negra: tenta se balancear;
+    
+    		Heap;
+    
+    		B: cada item da árvore é um vetor, onde cada elemento do vetor armazena um vetor;
